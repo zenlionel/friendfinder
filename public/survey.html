@@ -195,15 +195,17 @@
 
 
         console.log(newbuddy);
-        $.post("/api/friend ", newbuddy, function (data) {
+        
+        $.post("/api/friend", newbuddy, function (data) {
             $('#friendName').text(data.name);
             $('#friendPhoto').attr("src", data.photo);
             $("#resultModal").modal('toggle');
+            console.log(data)
         });
 
         alert('you have submitted succesfully!')
 
-        // return false;
+       
     });
 </script>
 
