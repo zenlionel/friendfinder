@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friend Finder</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div id="resultModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">
+                        <strong>Check yo new friend....maybe..</strong>
+                    </h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="friendName"></h2>
+                    <img id="friendPhoto" src="" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Survey Questions</h2>
+        <hr>
+        <h3>
+            <strong>About You</strong>
+        </h3>
+        <h4>Name</h4>
+        <input type="text" name="" id="name">
+        <h4>Add a link to a photo</h4>
+        <input type="url" name="" id="photo" pattern="https?://.+">
+        <h3>
+            <strong>Question 1</strong>
+        </h3>
+        <h4>I like food</h4>
+        <select data-input=" " id="q1">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 2</strong>
+        </h3>
+        <h4>I like to cook for others</h4>
+        <select data-input=" " id="q2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 3</strong>
+        </h3>
+        <h4>I like to play video games</h4>
+        <select data-input=" " id="q3">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 4</strong>
+        </h3>
+        <h4>I like to play sports</h4>
+        <select data-input=" " id="q4">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 5</strong>
+        </h3>
+        <h4>I like to do magic tricks with birds</h4>
+        <select data-input=" " id="q5">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 6</strong>
+        </h3>
+        <h4>I like to do the alcohol a lot</h4>
+        <select data-input=" " id="q6">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 7</strong>
+        </h3>
+        <h4>I crave ice cream after drinking alcohol</h4>
+        <select data-input=" " id="q7">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 8</strong>
+        </h3>
+        <h4>I can drink a lot of booze</h4>
+        <select data-input=" " id="q8">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 9</strong>
+        </h3>
+        <h4>I think people that don't drink are weird </h4>
+        <select data-input=" " id="q9">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <h3>
+            <strong>Question 10</strong>
+        </h3>
+        <h4>I love dogs</h4>
+        <select data-input=" " id="q10">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <hr>
+        <button type="submit" class="btn btn-primary btn-lg btn-block " id="submit">Submit</button>
+        <hr>
+        <footer class="footer ">
+            <div class="container ">
+                <p>
+                    <a href="/api/friend">api friends list</a> |
+                    <a href="https://github.com/zenlionel/friendfinder">Github repository</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+<script type="text/javascript ">
+    $('#submit').on("click", function (data) {
+        scores1 = [];
+        for (var i = 1; i < 11; i++) {
+            scores1.push($('q' + i).val());
+        }
+        var newbuddy = {
+            name: $('#name').val(),
+            photo: $('#photo').val(),
+            scores: scores1
+        }
+
+
+        console.log(newbuddy);
+        $.post("/api/friend ", newbuddy);
+        //  {
+        //     $('#name').text(data.name);
+        //     $('#photo').attr("src", data.photo);
+        //     $('#scores').
+        // })
+        //can't get shit to post to the /api/friends object right
+        alert('you have submitted succesfully!')
+
+        // return false;
+    });
+</script>
+
+</html>
