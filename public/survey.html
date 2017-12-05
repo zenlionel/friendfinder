@@ -184,8 +184,9 @@
     $('#submit').on("click", function () {
         scores1 = [];
         for (var i = 1; i < 11; i++) {
-            scores1.push($('q' + i).val());
+            scores1.push($('#q' + i).val());
         }
+        console.log(scores1);
         var newbuddy = {
             name: $('#name').val(),
             photo: $('#photo').val(),
@@ -194,13 +195,12 @@
 
 
         console.log(newbuddy);
-        $.post("/api/friend ", newbuddy);
-        //  {
-        //     $('#name').text(data.name);
-        //     $('#photo').attr("src", data.photo);
-        //     $('#scores').
-        // })
-        //can't get shit to post to the /api/friends object right
+        $.post("/api/friend ", newbuddy, function (data) {
+            $('#friendName').text(data.name);
+            $('#friendPhoto').attr("src", data.photo);
+            $("#resultModal").modal('toggle');
+        });
+
         alert('you have submitted succesfully!')
 
         // return false;
