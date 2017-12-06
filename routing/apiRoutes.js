@@ -14,9 +14,17 @@ module.exports = function (app) {
         var scores = 100;
         var friendScore = 0;
         for (i = 0; i < friendTable.length; i++) {
-
-                friendScore = friendScore + Math.abs(friendTable[i].scores - person.scores);
-            
+            console.log('person scores');
+            console.log(person.scores);
+            console.log('friendtable[i].scores');
+            console.log(friendTable[i].scores);
+            var sum= 0;
+            for(var j=0; j< friendTable[i].scores; j++){
+                sum += Math.abs(friendTable[i].scores[j] - person.scores[j]);
+            }
+                friendScore = sum;
+            console.log('friendscore');
+                console.log(friendScore);
             if (friendScore <= scores) {
                 newFriend = i;
                 scores = friendScore;

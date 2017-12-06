@@ -181,10 +181,11 @@
 
 </body>
 <script type="text/javascript ">
-    $('#submit').on("click", function () {
+    $('#submit').on("click", function (event) {
+        event.preventDefault();
         scores1 = [];
         for (var i = 1; i < 11; i++) {
-            scores1.push($('#q' + i).val());
+            scores1.push(parseInt($('#q' + i).val()));
         }
         console.log(scores1);
         var newbuddy = {
@@ -195,17 +196,24 @@
 
 
         console.log(newbuddy);
-        
-        $.post("/api/friend", newbuddy, function (data) {
-            $('#friendName').text(data.name);
-            $('#friendPhoto').attr("src", data.photo);
-            $("#resultModal").modal('toggle');
-            console.log(data)
+
+        $.ajax({
+            url: "/api/friend",
+            type: 'POST',
+            data: JSON.stringify(newbuddy),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (data) {
+                $('#friendName').text(data.name);
+                $('#friendPhoto').attr("src", data.photo);
+                $("#resultModal").modal('toggle');
+                console.log(data)
+            }
         });
 
         alert('you have submitted succesfully!')
 
-       
+
     });
 </script>
 
